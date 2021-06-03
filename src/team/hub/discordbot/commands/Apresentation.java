@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class Apresentation extends ListenerAdapter {
 
@@ -53,11 +54,11 @@ public class Apresentation extends ListenerAdapter {
         EmbedBuilder embed = new EmbedBuilder();
 
         embed.setColor(7419530);
-        embed.setFooter("HubTech, sua comunidade de desenvolvimento.", Objects.requireNonNull(event.getUser()).getAvatarUrl());
+        embed.setFooter("[Essa mensagem será excluída em 15 segundos]");
         if (msgID != null & (!(event.getUser()).isBot()) & event.getReactionEmote().getName().equals("1️⃣")) {
             embed.setTitle(":orange_book: Informações");
             embed.setDescription("As experiências acumuladas demonstram que a revolução dos costumes maximiza as possibilidades por conta das regras de conduta normativas.\n");
-            event.getChannel().sendMessage(embed.build()).complete();
+            event.getChannel().sendMessage(embed.build()).queue(e -> e.delete().submitAfter(15, TimeUnit.SECONDS));
             event.getReaction().removeReaction().queue();
         }
 
@@ -76,7 +77,7 @@ public class Apresentation extends ListenerAdapter {
             embed.addField("10. Utilize corretamente cada sala do servidor para o assunto a qual ela pertence.","", false);
             embed.addField("11. Qualquer dúvida, reclamação, denúncia, etc, entre em contato com membros da Staff (Admins, Moderadores, etc).","", false);
             embed.addField("12. Mais importante: Divirta-se e aproveite sua estadia!", "", false);
-            event.getChannel().sendMessage(embed.build()).complete();
+            event.getChannel().sendMessage(embed.build()).queue(e -> e.delete().submitAfter(15, TimeUnit.SECONDS));
             event.getReaction().removeReaction().queue();
         }
     }
