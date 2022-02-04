@@ -29,8 +29,8 @@ The project consists of creating a DiscordBot created in Java for the Hub.
 - Java 11 is necessary.
 
   ```bash
-  java -jar Java-Hubble-Bot.jar
-  ```
+    mvn clean compile assembly:single
+    java -jar target/Java-Hubble-Bot-1.0-jar-with-dependencies.jar  ```
 
   <h2 id="contribution"> 🤝Contribution </h2>
 
@@ -74,7 +74,8 @@ O projeto consiste na criação de um DiscordBot criado em Java para a Hub.
 - Necessário possuir a versão 11 do Java.
 
   ```bash
-  java -jar Java-Hubble-Bot.jar
+    mvn clean compile assembly:single
+    java -jar target/Java-Hubble-Bot-1.0-jar-with-dependencies.jar
   ```
 
   <h2 id="contribuicao"> 🤝 Contribuições </h2>
